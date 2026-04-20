@@ -15,10 +15,12 @@ def dateformat(unixtime):
     return ftime, fdate, isodate
 import os
 import datetime
-search_dir = None
+search_dir = "notes/"
 notes = os.listdir(search_dir)
-if search_dir == None:
-    search_dir = ""
+badNames=[".DS_Store"]
+for i in notes:
+    if i in badNames:
+        notes.remove(i)
 names = []
 dates = []
 times = []
@@ -73,7 +75,7 @@ for x in range (0, len(notes)):
     names.append(notes[x])
     #html = html + "<a href=\"" + names[x] +"\">" + dates[x] + "&nbsp;&nbsp;" + names[x] +"</a><br>"
     #if there's no name we'll just make the date the link
-    html = html + "<tr><td sorttable_customkey=\"" + isodates[x] + "\">" + dates[x] + "</td><td><a href=\"" + names[x] +"\">" + names[x] +"</a></td><td class=\"hidden\">" + times[x] + "</td><td class=\"hidden\">" + str(sizes[x]) + "</td></tr>\r\n"
+    html = html + "<tr><td sorttable_customkey=\"" + isodates[x] + "\">" + dates[x] + "</td><td><a href=\"" + search_dir + names[x] +"\">" + names[x] +"</a></td><td class=\"hidden\">" + times[x] + "</td><td class=\"hidden\">" + str(sizes[x]) + "</td></tr>\r\n"
 filename = datetime.datetime.now()
 filename = filename.strftime("%Y%m%d%H%M")
 filename = "new file " + filename + ".html"
@@ -82,6 +84,3 @@ f.write(pretable)
 f.write(html)
 f.write(posttable)
 f.close()
-
-    
-    
