@@ -16,7 +16,7 @@ sorting-notes is built to work with Stuart Langridge’s [sorttable](https://www
 
 ## Rudimentary time zone support
 
-If some of your notes were saved outside of your home time zone, you can modify tzbreaks and tzoffset (on lines 4 and 5) to account for this.
+If some of your notes were saved outside of your home time zone, you can modify `tzbreaks` and `tzoffset` (on lines 4 and 5) to account for this.
 
 Suppose I live in New York and traveled to Paris in September 2023 — let’s say I arrived on September 1 and returned on September 15. I was in transit at 12 AM New York time on September 1, and at 12 PM New York time on September 15.
 
@@ -28,7 +28,7 @@ The lists should look like this:
 
 `tzoffset = [0, 6, 0, 0]`
 
-The way this works: starting at 1693540800 (12 AM Sep 1 2023 in New York), the timestamps of my notes will be displayed in Paris local time, which is 6 hours ahead of my home time zone. Then, starting at 1694793600 (12 PM on Sep 15), they will be displayed in New York time again.
+The way this works: starting at `1693540800` (12 AM Sep 1 2023 in New York), the timestamps of my notes will be displayed in Paris local time, which is 6 hours ahead of my home time zone. Then, starting at `1694793600 `(12 PM on Sep 15), they will be displayed in New York time again. `1693540800` is a Unix timestamp — [time.is](https://time.is/Unix_time_converter) can help you obtain one for the date you need.
 
 Ensure that tzbreaks is sorted chronologically, and the indices of tzoffset align with those of tzbreaks - otherwise, it might not work correctly!
 
