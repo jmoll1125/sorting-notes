@@ -1,5 +1,6 @@
 #8.15.21 and 9.16.21
-#minor revisions 6.11.23
+#minor revisions 6.11.23 and 4.19.26
+#tz support added 4.19.26
 #you need dummy tzvalues on each end - offset of 0, and breaks of 0 and 9999999999
 tzbreaks = [0, 9999999999]
 tzoffset = [0, 0]
