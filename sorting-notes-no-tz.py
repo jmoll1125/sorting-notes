@@ -1,15 +1,6 @@
 #8.15.21 and 9.16.21
 #minor revisions 6.11.23
-#you need dummy tzvalues on each end - offset of 0, and breaks of 0 and 9999999999
-tzbreaks = [0, 9999999999]
-tzoffset = [0, 0]
 def dateformat(unixtime):
-    z = 0
-    while True:
-        if tzbreaks[z] < unixtime < tzbreaks[z+1]:
-              break
-        z = z + 1
-    unixtime = unixtime + (tzoffset[z]*3600)
     timestamp = datetime.datetime.fromtimestamp(unixtime)
     fdate = timestamp.strftime("a%m.%e.%yx%I:%M %p")
     fdate = fdate.replace('a0', '')
